@@ -19,18 +19,20 @@ function Header() {
     </div>)
 }
 function Footer() {
-    return(<div className="flex flex-wrap  items-center justify-center min-h-32 w-full bg-gradient-to-tr from-sky-400 to-indigo-600"><p>Contact Us:</p>
+    return(<div className="flex flex-wrap  gap-4 items-center justify-center min-h-32 w-full bg-gradient-to-tr from-sky-400 to-indigo-600">
+        <div><p className="text-2xl text-rose-600">Contact Us:</p>
         <p>Email: <a href="mailto:info@laughfactory.com" >info@mytinerary.com</a></p>
         <p>Phone: +57 123 456 7890</p>
-        <p>Address: 123 Main St, Bogotá, Colombia</p>
+        <p>Address: 123 Main St, Bogotá, Colombia</p></div>
         <p>Hours: Monday to Friday, 9 AM - 5 PM</p>
-        <p>Follow us on social media:</p>
+        <div><p className="text-2xl text-rose-600">Follow us on social media:</p>
         <p>
             <a href="https://www.facebook.com/laughfactory" >Facebook</a> |
             <a href="https://www.instagram.com/laughfactory" >Instagram</a> |
             <a href="https://twitter.com/laughfactory">Twitter</a>
-        </p>
-        <p> 2024 The Laugh Factory. All rights reserved.</p></div>)
+        </p></div>
+    
+        <p> 2024 My Tinerary. All rights reserved.</p></div>)
 }
 
 function Login() {
