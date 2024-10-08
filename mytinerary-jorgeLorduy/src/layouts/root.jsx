@@ -3,7 +3,7 @@ import logo from '../assets/images/logo.png'
 
 export function Root() {
     return (
-        <div className="w-screen min-h-screen flex flex-col font-bebas">
+        <div className="max-w-screen min-h-screen flex flex-col font-bebas">
             <Header />
             <div className="grow bg-gradient-to-t from-sky-300 to-sky-400"><Outlet /></div>
             <Footer />
@@ -13,13 +13,24 @@ export function Root() {
 }
 
 function Header() {
-    return(<div className="min-h-16 w-full bg-gradient-to-tr from-sky-400 to-indigo-600 gap-8 flex items-center justify-between px-5 flex-wrap">
+    return(<div className="min-h-16 w-full bg-gradient-to-tr from-sky-400 to-indigo-600 gap-8 flex items-center justify-between px-5 flex-wrap pb-3">
     <Link to='/' ><p className="flex items-center text-3xl w-auto font-bold text-white"><span><img className="h-16" src={logo} alt="" /></span>My Tinerary</p></Link>
     <Link to='/cities'><p className="text-white font-bebas text-3xl hover:text-rose-400">Cities</p></Link> <Login /> 
     </div>)
 }
 function Footer() {
-    return(<div className="flex items-center justify-center min-h-32 w-full bg-gradient-to-tr from-sky-400 to-indigo-600"><p className="text-xl font-normal text-white">Created By Jorge Lorduy 2024</p></div>)
+    return(<div className="flex flex-wrap  items-center justify-center min-h-32 w-full bg-gradient-to-tr from-sky-400 to-indigo-600"><p>Contact Us:</p>
+        <p>Email: <a href="mailto:info@laughfactory.com" >info@mytinerary.com</a></p>
+        <p>Phone: +57 123 456 7890</p>
+        <p>Address: 123 Main St, Bogotá, Colombia</p>
+        <p>Hours: Monday to Friday, 9 AM - 5 PM</p>
+        <p>Follow us on social media:</p>
+        <p>
+            <a href="https://www.facebook.com/laughfactory" >Facebook</a> |
+            <a href="https://www.instagram.com/laughfactory" >Instagram</a> |
+            <a href="https://twitter.com/laughfactory">Twitter</a>
+        </p>
+        <p> 2024 The Laugh Factory. All rights reserved.</p></div>)
 }
 
 function Login() {
