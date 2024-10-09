@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       backgroundImage:{
-heroimg: "url('./src/assets/images/hero-img.jpg')"
+heroimg: "url('/images/hero-img.jpg')"
       },
       fontFamily:{
         bebas: ['BebasFont']
