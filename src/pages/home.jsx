@@ -27,11 +27,11 @@ function CarrouselSection({items}) {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const siguiente = () => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % 3);
+      setCurrentIndex((indexB) => (indexB + 1) % 3);
     };
   
     const previa = () => {
-      setCurrentIndex((prevIndex) => (prevIndex - 1 + 3) % 3); 
+      setCurrentIndex((indexB) => (indexB - 1 + 3) % 3); 
     };
   
     useEffect(() => {
@@ -46,13 +46,13 @@ function CarrouselSection({items}) {
     ];
   
     return (
-      <div className="flex justify-center"><div className="relative w-2/3 overflow-hidden ">
+      <div className="flex justify-center"><div className="relative w-2/3 ">
         <p className="flex justify-center text-2xl ">Popular my tinerary 🔥</p>
         <div className="grid grid-cols-2 gap-4">
           {slides[currentIndex].map((item, index) => (
             <div key={index} className="p-2">
               <div className="flex flex-col items-center">
-                <img src={item.imagen} alt={item.nombre} className="w-full h-auto object-cover" />
+                <img src={item.imagen} alt={item.nombre} className="w-full max-h-1/3 object-cover" />
                 <p className="mt-2 text-center">{item.nombre}</p>
               </div>
             </div>
