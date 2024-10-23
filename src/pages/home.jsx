@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { ciudades } from "../info"
+import { cities } from "../info"
 import { useState,useEffect } from "react"
 
 
@@ -8,7 +8,7 @@ export function Home() {
     return(
         <>
         <HeroSection />
-        <CarrouselSection items={ciudades} />
+        <CarrouselSection items={cities} />
         </>
     )
     
@@ -52,8 +52,8 @@ function CarrouselSection({items}) {
           {slides[currentIndex].map((item, index) => (
             <div key={index} className="p-2">
               <div className="flex flex-col items-center">
-                <img src={item.imagen} alt={item.nombre} className="w-full max-h-1/3 object-cover" />
-                <p className="mt-2 text-center">{item.nombre}</p>
+                <img src={item.img} alt={item.name} className="w-full max-h-1/3 object-cover" />
+                <p className="mt-2 text-center">{item.name}</p>
               </div>
             </div>
           ))}

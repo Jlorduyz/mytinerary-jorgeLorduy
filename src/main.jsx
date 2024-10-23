@@ -6,6 +6,7 @@ import { ErrorPage } from './layouts/errorPage'
 import { Root } from './layouts/root'
 import { Cities } from './pages/cities'
 import { Home } from './pages/home'
+import { CityDescription } from './pages/city'
 
 const router = createBrowserRouter([{
   path: '/',
@@ -14,6 +15,10 @@ const router = createBrowserRouter([{
     {
       path:'/cities',
       element: <Cities />
+    },
+    {
+      path:'/cities/:name',
+      element: <CityDescription />
     },{
       path: '/',
       element: <Home />
