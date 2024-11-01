@@ -7,6 +7,8 @@ import { Root } from './layouts/root'
 import { Cities } from './pages/cities'
 import { Home } from './pages/home'
 import { CityDescription } from './pages/city'
+import { Provider } from 'react-redux'
+import store from './store/store'
 
 const router = createBrowserRouter([{
   path: '/',
@@ -31,6 +33,8 @@ const router = createBrowserRouter([{
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <Provider store={store}>
     <RouterProvider router={router}  />
+    </Provider>
   </StrictMode>,
 )
