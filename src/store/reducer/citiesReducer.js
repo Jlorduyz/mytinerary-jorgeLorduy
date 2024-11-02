@@ -1,10 +1,18 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { getCities, setLastView, setSearch } from "../actions/citiesActions";
+import {
+  getCities,
+  setLastView,
+  setSearch,
+  getItineraries,
+} from "../actions/citiesActions";
 
 const initialState = {
   cities: [],
+  itineraries: [],
   search: "",
   loading: true,
+  loadingItineraries: true,
+  errorItineraries: false,
   error: false,
   lastView: "",
 };
@@ -21,15 +29,26 @@ export const citiesReducer = createReducer(initialState, (builder) => {
       state.loading = false;
       state.cities = action.payload;
       state.error = false;
-      console.log("Solicitud completada con éxito", action.payload);
     })
     .addCase(getCities.pending, (state, action) => {
       state.loading = true;
-      console.log("Solicitud en estado pending");
     })
     .addCase(getCities.rejected, (state) => {
       state.error = true;
       state.loading = false;
+      console.log("error");
+    })
+    .addCase(getItineraries.fulfilled, (state, action) => {
+      state.loadingItineraries = false;
+      state.itineraries = action.payload;
+      state.errorItineraries = false;
+    })
+    .addCase(getItineraries.pending, (state, action) => {
+      state.loadingItineraries = true;
+    })
+    .addCase(getItineraries.rejected, (state) => {
+      state.errorItineraries = true;
+      state.loadingItineraries = false;
       console.log("error");
     });
 });

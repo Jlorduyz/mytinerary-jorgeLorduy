@@ -6,7 +6,7 @@ import { ErrorPage } from './layouts/errorPage'
 import { Root } from './layouts/root'
 import { Cities } from './pages/cities'
 import { Home } from './pages/home'
-import { CityDescription } from './pages/city'
+import { City } from './pages/city'
 import { Provider } from 'react-redux'
 import store from './store/store'
 
@@ -15,18 +15,18 @@ const router = createBrowserRouter([{
   element: <Root />,
   children: [
     {
-      path:'/cities',
+      path: '/cities',
       element: <Cities />
     },
     {
-      path:'/cities/:name',
-      element: <CityDescription />
-    },{
+      path: '/cities/:name',
+      element: <City />
+    }, {
       path: '/',
       element: <Home />
     }
   ]
-},{
+}, {
   path: '/*',
   element: <ErrorPage />
 }])
@@ -34,7 +34,7 @@ const router = createBrowserRouter([{
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Provider store={store}>
-    <RouterProvider router={router}  />
+      <RouterProvider router={router} />
     </Provider>
   </StrictMode>,
 )
