@@ -7,6 +7,7 @@ import { Root } from './layouts/root'
 import { Cities } from './pages/cities'
 import { Home } from './pages/home'
 import { City } from './pages/city'
+import Entry from './pages/entry'
 import { Provider } from 'react-redux'
 import store from './store/store'
 
@@ -24,6 +25,9 @@ const router = createBrowserRouter([{
     }, {
       path: '/',
       element: <Home />
+    },{
+    path: '/log',
+      element: <Entry/>
     }
   ]
 }, {

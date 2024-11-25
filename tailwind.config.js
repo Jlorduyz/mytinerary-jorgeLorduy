@@ -7,7 +7,8 @@ export default {
 heroimg: "url('/images/hero-img.jpg')"
       },
       fontFamily:{
-        bebas: ['BebasFont']
+        bebas: ['BebasFont'],
+         textBasic: ['Arial', 'sans-serif']
       }
     },
   },

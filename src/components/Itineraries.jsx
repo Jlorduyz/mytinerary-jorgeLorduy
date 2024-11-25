@@ -32,25 +32,25 @@ function Itineraries() {
         <div className="w-full flex flex-col items-center gap-16 py-10">
             {itineraries.map((res) => (
                 <div
-                    className="w-80 rounded-md min-h-72 relative bg-gradient-to-tl from-indigo-700 to-sky-600"
+                    className="w-auto mx-10 rounded-md min-h-72 relative bg-gradient-to-tl from-indigo-700 to-sky-600"
                     key={res._id}
-                >
-                    {" "}
-                    <div className="min-w-full flex flex-col justify-center items-center pt-3">
+                ><img src={res.img} alt="" className='rounded-t-md'/>
+                    <p className="text-gray-900 text-3xl pt-3 text-center">{res.hashtags}</p>
+                    <div className="min-w-full flex gap-2  justify-center items-center pt-3">
                         <img
-                            className="w-24 bg-indigo-200 rounded-full"
+                            className="w-11 bg-indigo-200 rounded-full"
                             src={res.travelAgent.photo}
                             alt=""
                         />
                         <p className="text-gray-300 pt-3">
                             Posted By{" "}
-                            <span className="text-white font-semibold text-2xl">
+                            <span className="text-white font-medium text-lg">
                                 {res.travelAgent.name}
                             </span>
                         </p>
-                        <p className="text-gray-900">{res.hashtags}</p>
                     </div>
-                    <div className="flex justify-between text-white pt-2 px-20">
+
+                    <div className="flex justify-between text-white pt-2 px-14">
                         <p className="text-xl">Price:{"💲".repeat(res.price)}</p>
                         <p>🕞 {res.duration}</p>
                     </div>
