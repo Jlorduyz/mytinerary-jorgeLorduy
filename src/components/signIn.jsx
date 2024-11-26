@@ -1,12 +1,11 @@
 import {useState} from "react";
 import {useSelector, useDispatch} from "react-redux";
 import {signIn} from "../store/actions/authActions.js";
-import {useNavigate} from "react-router-dom";
+
 
 function SignIn({setRegister, register}) {
     const dispatch = useDispatch();
-    const {error, loading, token} = useSelector((state) => state.authStore);
-    const navigate = useNavigate();
+    const {error, loading} = useSelector((state) => state.authStore);
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -15,7 +14,8 @@ function SignIn({setRegister, register}) {
         e.preventDefault();
         dispatch(signIn({email,password}))
     };
-    return(token ? navigate("/") :
+
+    return(
         <div className=" mx-4 p-2  ">
             <form onSubmit={handleSubmit}  className='flex flex-col justify-around w-80 h-96  bg-sky-600 gap-5 p-5 rounded-lg shadow-xl shadow-gray-600'>
                 <p className="text-center text-3xl font-semibold text-white">Sign In</p>
@@ -26,7 +26,7 @@ function SignIn({setRegister, register}) {
 
                 {loading ? <p className="text-xl text-white">Loading....</p> :
                     <button className="text-xl text-white  rounded-lg bg-black" type="submit">Sign In</button>}
-                <button className=" border-2 rounded-lg bg-white" onClick={() => setRegister(!register)}>Create account</button>
+                <button className="text-sm border-2 rounded-lg bg-white" onClick={() => setRegister(!register)}>Create account</button>
 
             </form>
 

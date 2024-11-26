@@ -6,13 +6,11 @@ const setLastView = createAction("SET_LASTVIEW");
 
 const getCities = createAsyncThunk("GET_CITIES", async () => {
   const token = localStorage.getItem("token");
-  console.log("funcion asincrona ");
   const res = await axios.get("http://localhost:8080/api/cities/all", {
     headers: {
       Authorization: `Bearer ${token}`
     }
   });
-  console.log(res.data.response);
   await new Promise((resolve) => setTimeout(resolve, 1500));
   return res.data.response;
 });

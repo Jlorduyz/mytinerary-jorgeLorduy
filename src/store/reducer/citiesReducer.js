@@ -36,7 +36,6 @@ export const citiesReducer = createReducer(initialState, (builder) => {
     .addCase(getCities.rejected, (state) => {
       state.error = true;
       state.loading = false;
-      console.log("error");
     })
     .addCase(getItineraries.fulfilled, (state, action) => {
       state.loadingItineraries = false;
@@ -49,6 +48,5 @@ export const citiesReducer = createReducer(initialState, (builder) => {
     .addCase(getItineraries.rejected, (state) => {
       state.errorItineraries = true;
       state.loadingItineraries = false;
-      console.log("error");
     });
 });

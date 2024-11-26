@@ -10,6 +10,8 @@ import { City } from './pages/city'
 import Entry from './pages/entry'
 import { Provider } from 'react-redux'
 import store from './store/store'
+import LogRoute from './components/logRoute.jsx'
+import PrivateRouter from './components/PrivateRouter.jsx'
 
 const router = createBrowserRouter([{
   path: '/',
@@ -17,17 +19,17 @@ const router = createBrowserRouter([{
   children: [
     {
       path: '/cities',
-      element: <Cities />
+      element: <PrivateRouter><Cities /></PrivateRouter>
     },
     {
       path: '/cities/:name',
-      element: <City />
+      element: <PrivateRouter><City /></PrivateRouter>
     }, {
       path: '/',
       element: <Home />
     },{
     path: '/log',
-      element: <Entry/>
+      element: <LogRoute><Entry/></LogRoute>
     }
   ]
 }, {

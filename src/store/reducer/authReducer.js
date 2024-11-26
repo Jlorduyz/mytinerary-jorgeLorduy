@@ -1,12 +1,13 @@
 import { createReducer } from "@reduxjs/toolkit";
-import {setUser,logOut,signIn} from "../actions/authActions.js";
-import error from "eslint-plugin-react/lib/util/error.js";
+import {setUser, logOut, signIn, signUp} from "../actions/authActions";
 
 const initialState = {
     loading : false,
     error : false,
-    user : null,
-    token : null
+    errorReg: false,
+    user : JSON.parse(localStorage.getItem("user")) || null,
+    token :localStorage.getItem('token')|| null,
+
 }
 
 const reducer =createReducer(initialState,(builder)=>{
@@ -15,14 +16,12 @@ const reducer =createReducer(initialState,(builder)=>{
             state.error = false
             state.user = action.payload.user
             state.token = action.payload.token
-    })
-        .addCase(signIn.pending,(state,action)=>{
+    }).addCase(signIn.pending,(state)=>{
             state.loading = true
                 state.error = false
                 state.user = null
                 state.token = null
-        })
-        .addCase(signIn.rejected,(state,action)=>{
+        }).addCase(signIn.rejected,(state,action)=>{
             state.loading = false
                 state.error = action.payload
 
@@ -31,12 +30,34 @@ const reducer =createReducer(initialState,(builder)=>{
         }).addCase(setUser,(state,action)=>{
         state.user = action.payload.user
             state.token = action.payload.token
-    })
-
-        .addCase(logOut,(state,action)=>{
-            localStorage.removeItem("token");
+    }).addCase(logOut.pending,()=>{
+    }).addCase(logOut.rejected,(state,action)=>{
+        state.user = null
+        state.token = null
+        console.log("error logOut")
+        console.log("error mensaje"+action.payload)
+    }).addCase(logOut.fulfilled,(state)=>{
+        console.log('deslogueado')
+        state.user = null
+        state.token = null
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+    }).addCase(signUp.fulfilled,(state,action)=>{
+        state.loading = false
+        state.error = false
+        state.user = action.payload.user
+        state.token = action.payload.token
+            state.createUser  = null
+    }).addCase(signUp.pending,(state)=>{
+        state.loading = true
+        state.error = false
+        state.user = null
+        state.token = null
+    }).addCase(signUp.rejected,(state,action)=>{
+            state.loading = false
+            state.errorReg = action.payload
             state.user = null
-                state.token = null
+            state.token = null
         })
 })
 
